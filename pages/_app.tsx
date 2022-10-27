@@ -1,19 +1,37 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { MantineProvider } from '@mantine/core'
+import { useState } from 'react'
+import {
+  MantineProvider,
+  ColorSchemeProvider,
+  ColorScheme,
+  Paper,
+} from '@mantine/core'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        /** Put your mantine theme override here */
-        colorScheme: 'dark',
-      }}
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
     >
-      <Component {...pageProps} />
-    </MantineProvider>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          colorScheme,
+          fontFamily:
+            'BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif',
+        }}
+      >
+        <Paper>
+          <Component {...pageProps} />
+        </Paper>
+      </MantineProvider>
+    </ColorSchemeProvider>
   )
 }
 

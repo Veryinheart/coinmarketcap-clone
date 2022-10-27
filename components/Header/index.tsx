@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
+import { Text } from '@mantine/core'
+import ThemePicker from '../ThemePicker/index'
 
 const HeaderContainer = styled.div`
-  background: #17171a;
   color: #ffffff;
   display: flex;
   width: 100%;
@@ -42,27 +43,29 @@ const Header = () => {
       <Image
         src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg"
         alt="logo"
-        width={220}
-        height={220}
+        width={240}
+        height={240}
       />
       <HeaderWrapper>
         <Nav>
           <NavItem>
-            <div>Cryptocurrencies</div>
+            <Text>Cryptocurrencies</Text>
           </NavItem>
           <NavItem>
-            <div>Exchange</div>
+            <Text>Exchange</Text>
           </NavItem>
           <NavItem>
-            <div>Community</div>
+            <Text>Community</Text>
           </NavItem>
           <NavItem>
-            <div>Products</div>
+            <Text>Products</Text>
           </NavItem>
           <NavItem>
-            <div>Learn</div>
+            <Text>Learn</Text>
           </NavItem>
         </Nav>
+        <ThemePicker />
+        <Text>Learn</Text>
       </HeaderWrapper>
     </HeaderContainer>
   )
