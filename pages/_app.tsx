@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={{
           colorScheme,
           fontFamily:
-            'BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif',
+            'Inter, -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Helvetica, Arial, sans-serif',
         }}
       >
         <Paper>
