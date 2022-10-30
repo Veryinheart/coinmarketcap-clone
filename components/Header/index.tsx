@@ -35,16 +35,18 @@ const Header = () => {
         </Group>
         <Group>
           <Button
-            leftIcon={<IconStar size={18} />}
+            leftIcon={<IconStar size={15} />}
             variant="subtle"
             color="gray"
+            size="xs"
           >
             Watchlist
           </Button>
           <Button
-            leftIcon={<IconChartPie size={18} />}
+            leftIcon={<IconChartPie size={15} />}
             variant="subtle"
             color="gray"
+            size="xs"
           >
             Portfolio
           </Button>

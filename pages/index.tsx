@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Header from '../components/Header'
 import GlobalStatus from '../components/GlobalStatus/index'
 import Trending from '../components/Trending'
-//import { Center, Stack } from '@mantine/core'
+import { Paper } from '@mantine/core'
 
 const Home: NextPage = () => {
   return (
@@ -15,22 +15,24 @@ const Home: NextPage = () => {
           alignItems: 'stretch',
         }}
       >
-        <div
-          style={{
-            padding: '0.5rem 0',
-            borderBottom: '1px solid rgb(160, 160, 160)',
-          }}
-        >
-          <GlobalStatus />
-        </div>
-        <div
-          style={{
-            padding: '0.5rem 0',
-            borderBottom: '1px solid rgb(160, 160, 160)',
-          }}
-        >
-          <Header />
-        </div>
+        <Paper shadow="md">
+          <div
+            style={{
+              padding: '0.5rem 0',
+            }}
+          >
+            <GlobalStatus />
+          </div>
+        </Paper>
+        <Paper shadow="xs">
+          <div
+            style={{
+              padding: '0.5rem 0',
+            }}
+          >
+            <Header />
+          </div>
+        </Paper>
         <div style={{ marginTop: '2.5rem' }}>
           <Trending />
         </div>
