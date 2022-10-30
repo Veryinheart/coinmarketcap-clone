@@ -5,7 +5,7 @@ import ThemePicker from '../ThemePicker'
 
 const GlobalStatus = () => {
   return (
-    <Container px={30} fluid={true}>
+    <Container fluid={true}>
       <Group position="apart">
         <Group>
           <Text size="xs" color="dimmed" weight={500}>

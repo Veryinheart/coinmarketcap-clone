@@ -1,48 +1,30 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Group, Container, Button, Input } from '@mantine/core'
+import Image from 'next/image'
+import {
+  Group,
+  Container,
+  Button,
+  Input,
+  useMantineColorScheme,
+} from '@mantine/core'
 import { IconSearch, IconStar, IconChartPie } from '@tabler/icons'
 import ButtonWithPopover from '../Common/ButtonWithPopover/index'
 
-// const HeaderWrapper = styled.div`
-//   display: flex;
-//   padding-left: 1rem;
-//   padding-right: 1rem;
-//   justify-content: center;
-//   align-items: center;
-//   max-width: auto;
-//   height: 100%;
-// `
-// const Nav = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 20px;
-// `
-
-// const NavItem = styled.div`
-//   position: relative;
-//   margin-right: 0.25rem;
-//   cursor: pointer;
-//   &:hover {
-//     opacity: 0.6;
-//     color: #6188ff;
-//   }
-// `
-
 const Header = () => {
+  const { colorScheme } = useMantineColorScheme()
+
+  const logoUrl =
+    colorScheme === 'dark'
+      ? 'https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg'
+      : 'https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg'
+
   return (
-    <Container fluid={true} px={30}>
+    <Container fluid={true}>
       <Group position="apart">
         <Group>
           <Link href="/" passHref>
-            <Image
-              src="https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_white_1.svg"
-              alt="logo"
-              width={200}
-              height={60}
-            />
+            <Image src={logoUrl} alt="logo" width={180} height={50} />
           </Link>
 
           <ButtonWithPopover text="Cryptocurrencies" />
