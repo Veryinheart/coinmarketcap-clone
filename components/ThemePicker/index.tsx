@@ -9,7 +9,7 @@ const ThemePicker = () => {
   return (
     <ActionIcon
       variant="outline"
-      color={dark ? 'yellow' : 'blue'}
+      color={dark ? 'gray' : 'dark'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
     >
