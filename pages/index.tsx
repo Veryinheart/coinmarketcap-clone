@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Header from '../components/Header'
 import GlobalStatus from '../components/GlobalStatus/index'
+import Trending from '../components/Trending'
 //import { Center, Stack } from '@mantine/core'
 
 const Home: NextPage = () => {
@@ -30,8 +31,10 @@ const Home: NextPage = () => {
         >
           <Header />
         </div>
-        <div style={{ marginTop: '2.5rem' }} />
-        {/*<Trending/>*/}
+        <div style={{ marginTop: '2.5rem' }}>
+          <Trending />
+        </div>
+
         <div style={{ marginTop: '5rem' }} />
         {/*<CMCTable/>*/}
       </div>

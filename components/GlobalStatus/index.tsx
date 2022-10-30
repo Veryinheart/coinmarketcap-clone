@@ -1,6 +1,6 @@
 import { Container, Group, Text, Button } from '@mantine/core'
 import React from 'react'
-import { IconTriangleInverted } from '@tabler/icons'
+import { IconTriangleInverted, IconCoin } from '@tabler/icons'
 import ThemePicker from '../ThemePicker'
 
 const GlobalStatus = () => {
@@ -34,6 +34,7 @@ const GlobalStatus = () => {
             English
           </Button>
           <Button
+            leftIcon={<IconCoin size={15} color="green" />}
             rightIcon={<IconTriangleInverted size={10} />}
             size="xs"
             variant="subtle"
