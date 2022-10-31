@@ -15,10 +15,10 @@ const Home: NextPage = () => {
           alignItems: 'stretch',
         }}
       >
-        <Paper shadow="md">
+        <Paper shadow="md" withBorder>
           <div
             style={{
-              padding: '0.5rem 0',
+              padding: '0.5rem',
             }}
           >
             <GlobalStatus />
@@ -27,14 +27,16 @@ const Home: NextPage = () => {
         <Paper shadow="xs">
           <div
             style={{
-              padding: '0.5rem 0',
+              padding: '0.5rem',
             }}
           >
             <Header />
           </div>
         </Paper>
         <div style={{ marginTop: '2.5rem' }}>
-          <Trending />
+          <Paper p="md">
+            <Trending />
+          </Paper>
         </div>
 
         <div style={{ marginTop: '5rem' }} />

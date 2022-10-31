@@ -12,8 +12,9 @@ const GlobalStatus = () => {
             Cryptos:21,555
           </Text>
           <Text size="xs" color="dimmed" weight={500}>
-            Exchanges: 521
+            Exchanges:
           </Text>
+          521
           <Text size="xs" color="dimmed" weight={500}>
             Market Cap: $1,02132973891739212913129
           </Text>
