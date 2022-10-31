@@ -8,10 +8,11 @@ import {
   Text,
   Anchor,
 } from '@mantine/core'
+import TrendingCard from './TrendingCard'
 
 const Trending = () => {
   const [isReadMore, setIsReadMore] = useState(false)
-
+  const [toggleHighlights, setToggleHighlights] = useState(true)
   return (
     <Container fluid={true}>
       <Stack>
@@ -20,7 +21,14 @@ const Trending = () => {
             <Title order={3}>Today Cryptocurrency Prices by Market Cap</Title>
           </Group>
           <Group>
-            <Switch size="md" labelPosition="left" label="Highlight" />
+            <Switch
+              size="md"
+              labelPosition="left"
+              label="Highlight"
+              onClick={() => {
+                setToggleHighlights(!toggleHighlights)
+              }}
+            />
           </Group>
         </Group>
         <Group>
@@ -52,6 +60,11 @@ const Trending = () => {
             </div>
           )}
         </Group>
+        {toggleHighlights && (
+          <Group>
+            <TrendingCard />
+          </Group>
+        )}
       </Stack>
     </Container>
   )
