@@ -1233,6 +1233,11 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
+embla-carousel-autoplay@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/embla-carousel-autoplay/-/embla-carousel-autoplay-7.0.4.tgz#ddd20a3df341b49d727f664354ef019a7547c5f8"
+  integrity sha512-N0pRlqf0GxDvnXnWTx/rQOXePa/5l4lii5LAhNCzCSP0Qoj1APln8eGYzpCwkJ6m4Vc75lpnM+y37R9CaBm7Dg==
+
 embla-carousel-react@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-7.0.3.tgz#343c972a1ac5869acba3d6e9c7eeb3bd27f7e335"

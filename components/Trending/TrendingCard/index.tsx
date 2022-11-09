@@ -1,26 +1,39 @@
+import { Group, Paper } from '@mantine/core'
+import Image, { StaticImageData } from 'next/image'
 import React from 'react'
-import Image from 'next/image'
-import { Card, Group, Stack, Text } from '@mantine/core'
+import styled from 'styled-components'
+
 import MoreButton from '../../Common/MoreButton'
 
-const TrendingCard = () => {
-  const icon = '/assets/fire.png'
-  return (
-    <Card>
-      <Stack>
-        <Group>
-          <div>
-            {icon && <Image src={icon} width={27} height={27} alt="logo" />}
+interface TrendingCard {
+  icon?: string | StaticImageData
+  title?: string
+}
 
-            <Text>Trending</Text>
-          </div>
+const TrendingCardWrapper = styled.div`
+  width: auto;
+  height: 200px;
+`
+
+const TrendingCard = ({ icon, title }: TrendingCard) => {
+  return (
+    <TrendingCardWrapper>
+      <Paper radius="md" shadow="xs" p="sm">
+        <Group position="apart" noWrap>
+          <Group position="left" noWrap>
+            {icon && <Image src={icon} width={20} height={20} alt="logo" />}
+            <p style={{ fontWeight: 'bold' }}>{title}</p>
+          </Group>
           <MoreButton />
         </Group>
-        <Group></Group>
-        <Group></Group>
-        <Group></Group>
-      </Stack>
-    </Card>
+
+        <Group>1</Group>
+
+        <Group>2</Group>
+
+        <Group>3</Group>
+      </Paper>
+    </TrendingCardWrapper>
   )
 }
 

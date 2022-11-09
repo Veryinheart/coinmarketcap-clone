@@ -1,18 +1,50 @@
-import React, { useState } from 'react'
 import {
+  Anchor,
   Container,
   Group,
   Stack,
   Switch,
-  Title,
   Text,
-  Anchor,
+  Title,
 } from '@mantine/core'
+import React, { useState } from 'react'
+
+import fire from '../../assets/fire.png'
+import recent from '../../assets/recent.png'
+import CardsCarousel from './CardsCarousel'
 import TrendingCard from './TrendingCard'
+
+// const trendingData = [
+//   {
+//     number: 1,
+//     symbol: 'BTC',
+//     name: 'Bitcoin',
+//     icon: fire,
+//     isIncrement: true,
+//     rate: '2.34%',
+//   },
+//   {
+//     number: 2,
+//     symbol: 'USDT',
+//     name: 'Tether',
+//     icon: fire,
+//     isIncrement: false,
+//     rate: '9.32%',
+//   },
+//   {
+//     number: 1,
+//     symbol: 'BTC',
+//     name: 'Bitcoin',
+//     icon: fire,
+//     isIncrement: true,
+//     rate: '2.34%',
+//   },
+// ]
 
 const Trending = () => {
   const [isReadMore, setIsReadMore] = useState(false)
   const [toggleHighlights, setToggleHighlights] = useState(true)
+
   return (
     <Container fluid={true}>
       <Stack>
@@ -22,6 +54,7 @@ const Trending = () => {
           </Group>
           <Group>
             <Switch
+              checked={toggleHighlights}
               size="md"
               labelPosition="left"
               label="Highlight"
@@ -61,8 +94,11 @@ const Trending = () => {
           )}
         </Group>
         {toggleHighlights && (
-          <Group>
-            <TrendingCard />
+          <Group position="apart" noWrap>
+            <TrendingCard icon={fire} title="Trending" />
+            <TrendingCard icon={recent} title="Recent Added" />
+
+            <CardsCarousel />
           </Group>
         )}
       </Stack>

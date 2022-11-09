@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           alignItems: 'stretch',
         }}
       >
-        <Paper shadow="md" withBorder>
+        <Paper shadow="xs" withBorder>
           <div
             style={{
               padding: '0.5rem',

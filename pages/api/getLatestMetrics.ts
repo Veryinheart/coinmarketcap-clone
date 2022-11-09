@@ -7,7 +7,7 @@ export default function handler(
 ) {
   const getData = async () => {
     const response = await fetch(
-      `https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=${process.env.CMC_PRO_API_KEY}`,
+      `https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=${process.env.CMC_API_KEY}`,
       {
         method: 'GET',
         headers: {
@@ -19,4 +19,10 @@ export default function handler(
     res.status(200).json(data)
   }
   getData()
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }

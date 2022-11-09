@@ -1,13 +1,21 @@
 import React from 'react'
 import RightArrow from '../../../assets/svg/rightArrow'
-import { Text } from '@mantine/core'
+import styled from 'styled-components'
+
+const MoreButtonWrapper = styled.div`
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #6188ff;
+`
 
 const MoreButton = () => {
   return (
-    <div>
-      <Text>More</Text>
-      <RightArrow />
-    </div>
+    <MoreButtonWrapper>
+      More <RightArrow />
+    </MoreButtonWrapper>
   )
 }
 

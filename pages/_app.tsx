@@ -1,12 +1,12 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { useState } from 'react'
 import {
-  MantineProvider,
-  ColorSchemeProvider,
   ColorScheme,
-  Paper,
+  ColorSchemeProvider,
+  MantineProvider,
 } from '@mantine/core'
+import { useState } from 'react'
+// import { CoinmarketProvider } from '../context/context.ts'
+import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
@@ -27,9 +27,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             'Inter, -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, Helvetica, Arial, sans-serif',
         }}
       >
-        <Paper>
-          <Component {...pageProps} />
-        </Paper>
+        {/* <CoinmarketProvider> */}
+        <Component {...pageProps} />
+        {/* </CoinmarketProvider> */}
       </MantineProvider>
     </ColorSchemeProvider>
   )
