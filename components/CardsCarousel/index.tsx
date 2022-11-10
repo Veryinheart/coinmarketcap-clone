@@ -27,12 +27,8 @@ const Card = ({ icon, title }: CardProps) => {
         </Group>
         <MoreButton />
       </Group>
-
       <Group>1</Group>
-
       <Group>2</Group>
-
-      <Group>3</Group>
     </Paper>
   )
 }

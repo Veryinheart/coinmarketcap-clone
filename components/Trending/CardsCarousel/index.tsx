@@ -42,14 +42,14 @@ interface CardProps {
   content?: ReactNode
 }
 
-function Card({}: CardProps) {
+function CardRow({}: CardProps) {
   const { classes } = useStyles()
 
   return (
     <Paper radius="md" shadow="xs" p="sm" className={classes.card}>
       <div>1</div>
       <div>2</div>
-      <div>3</div>
+      <div>2</div>
     </Paper>
   )
 }
@@ -80,7 +80,7 @@ export default function CardsCarousel() {
 
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <Card />
+      <CardRow />
     </Carousel.Slide>
   ))
   const autoplay = useRef(Autoplay({ delay: 3000 }))

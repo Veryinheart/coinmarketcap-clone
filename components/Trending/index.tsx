@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import {
   Anchor,
   Container,
@@ -7,8 +8,6 @@ import {
   Text,
   Title,
 } from '@mantine/core'
-import React, { useState } from 'react'
-
 import fire from '../../assets/fire.png'
 import recent from '../../assets/recent.png'
 import CardsCarousel from './CardsCarousel'
@@ -46,7 +45,7 @@ const Trending = () => {
   const [toggleHighlights, setToggleHighlights] = useState(true)
 
   return (
-    <Container fluid={true}>
+    <Container size="xl">
       <Stack>
         <Group position="apart">
           <Group>

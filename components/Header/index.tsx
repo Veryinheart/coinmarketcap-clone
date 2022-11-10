@@ -34,7 +34,7 @@ const Header = () => {
       : 'https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg'
 
   return (
-    <Container fluid={true}>
+    <Container size="xl">
       <Group position="apart" noWrap>
         <Group>
           <Link href="/" passHref>

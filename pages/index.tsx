@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <Paper shadow="xs" withBorder>
           <div
             style={{
-              padding: '0.5rem',
+              padding: '0.5rem 0',
             }}
           >
             <GlobalStatus />
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <Paper shadow="xs">
           <div
             style={{
-              padding: '0.5rem',
+              padding: '0.5rem 0',
             }}
           >
             <Header />

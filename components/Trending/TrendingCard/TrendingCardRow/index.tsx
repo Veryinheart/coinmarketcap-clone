@@ -1,6 +1,8 @@
 import React from 'react'
 import { StaticImageData } from 'next/image'
 import styled from 'styled-components'
+import Image from 'next/image'
+import Rate from '../../../Common/Rate'
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,31 +15,32 @@ interface TrendingCardRowData {
   number?: number
   icon?: string | StaticImageData
   name?: string
-  symbol?: string | StaticImageData
-  isIncrement?: boolean
-  rate?: number
+  symbol?: string
+  isIncrement?: boolean | undefined
+  rate?: string
 }
 
-const TrendingCardRow = ({}: // number,
-// icon,
-// name,
-// symbol,
-// isIncrement,
-// rate,
-TrendingCardRowData) => {
+const TrendingCardRow = ({
+  number,
+  icon,
+  name,
+  symbol,
+  isIncrement,
+  rate,
+}: TrendingCardRowData) => {
   return (
     <Wrapper>
-      {/* <p style={{ opacity: '0.4' }}>{number}</p>
-      <div className="w-full flex">
-        <div className="mx-5">
+      <p style={{ opacity: '0.4' }}>{number}</p>
+      <div style={{ display: 'flex', width: '100%' }}>
+        <div style={{ margin: '1.25rem 0' }}>
           {icon && <Image alt="" src={icon} width={20} height={20} />}
         </div>
-        <p className="font-bold">
+        <p>
           {name}
-          <span className="text-gray-400"> {symbol}</span>
+          <span style={{ color: '#9CA3AF' }}> {symbol}</span>
         </p>
         <Rate isIncrement={isIncrement} rate={rate} />
-      </div> */}
+      </div>
     </Wrapper>
   )
 }
