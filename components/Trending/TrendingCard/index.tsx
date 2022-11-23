@@ -1,12 +1,12 @@
-import { Group, Paper } from '@mantine/core'
+import { Group } from '@mantine/core'
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
 import MoreButton from '../../Common/MoreButton'
 import TrendingCardRow from './TrendingCardRow'
-
 import btc from '../../../assets/btc.png'
 import usdt from '../../../assets/usdt.png'
+import CardWrapper from '../../Common/CardWrapper'
 
 interface TrendingCard {
   icon?: string | StaticImageData
@@ -47,30 +47,32 @@ const trendingData = [
 
 const TrendingCard = ({ icon, title }: TrendingCard) => {
   return (
-    <TrendingCardWrapper>
-      <Paper radius="md" shadow="xs" p="sm">
-        <Group position="apart" noWrap>
-          <Group position="left" noWrap>
-            {icon && <Image src={icon} width={20} height={20} alt="logo" />}
-            <p style={{ fontWeight: 'bold' }}>{title}</p>
+    <div>
+      <TrendingCardWrapper>
+        <CardWrapper>
+          <Group position="apart" noWrap>
+            <Group position="left" noWrap>
+              {icon && <Image src={icon} width={20} height={20} alt="logo" />}
+              <p style={{ fontWeight: 'bold' }}>{title}</p>
+            </Group>
+            <MoreButton />
           </Group>
-          <MoreButton />
-        </Group>
-        {trendingData.map((item, index) => {
-          return (
-            <TrendingCardRow
-              key={index}
-              number={item.number}
-              symbol={item.symbol}
-              name={item.name}
-              icon={item.icon}
-              isIncrement={item.isIncrement}
-              rate={item.rate}
-            />
-          )
-        })}
-      </Paper>
-    </TrendingCardWrapper>
+          {trendingData.map((item, index) => {
+            return (
+              <TrendingCardRow
+                key={index}
+                number={item.number}
+                symbol={item.symbol}
+                name={item.name}
+                icon={item.icon}
+                isIncrement={item.isIncrement}
+                rate={item.rate}
+              />
+            )
+          })}
+        </CardWrapper>
+      </TrendingCardWrapper>
+    </div>
   )
 }
 

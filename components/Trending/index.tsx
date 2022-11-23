@@ -45,7 +45,7 @@ const Trending = () => {
   const [toggleHighlights, setToggleHighlights] = useState(true)
 
   return (
-    <Container size="xl">
+    <Container size="xl" px={0}>
       <Stack>
         <Group position="apart">
           <Group>

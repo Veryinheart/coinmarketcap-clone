@@ -6,10 +6,9 @@ import Rate from '../../../Common/Rate'
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 1rem;
   justify-content: space-between;
-  align-items: center;
-  color: 0.93rem;
+  align-items: ;
+  width: auto;
 `
 interface TrendingCardRowData {
   number?: number
@@ -30,10 +29,10 @@ const TrendingCardRow = ({
 }: TrendingCardRowData) => {
   return (
     <Wrapper>
-      <p style={{ opacity: '0.4' }}>{number}</p>
+      <p style={{ opacity: '0.4', marginRight: '1rem' }}>{number}</p>
       <div style={{ display: 'flex', width: '100%' }}>
         <div style={{ margin: '1.25rem 0' }}>
-          {icon && <Image alt="" src={icon} width={20} height={20} />}
+          {icon && <Image alt="icon" src={icon} width={20} height={20} />}
         </div>
         <p>
           {name}

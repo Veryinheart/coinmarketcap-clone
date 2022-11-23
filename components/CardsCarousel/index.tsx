@@ -2,10 +2,11 @@ import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { Paper, createStyles, Group } from '@mantine/core'
 import MoreButton from '../Common/MoreButton'
-const useStyles = createStyles(() => ({
+const useStyles = createStyles((theme) => ({
   card: {
     height: 448,
     width: 200,
+    backgroundCOlor: theme.colorScheme === 'dark' ? '#323546' : '#f9fbfd',
   },
 }))
 
