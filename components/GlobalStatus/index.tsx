@@ -34,6 +34,7 @@ const GlobalStatus = () => {
             size="xs"
             variant="subtle"
             color="dark"
+            compact={true}
           >
             English
           </Button>
@@ -43,6 +44,7 @@ const GlobalStatus = () => {
             size="xs"
             variant="subtle"
             color="dark"
+            compact={true}
           >
             USD
           </Button>

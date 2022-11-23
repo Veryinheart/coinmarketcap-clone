@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import GlobalStatus from '../components/GlobalStatus/index'
 import Trending from '../components/Trending'
 import { Paper } from '@mantine/core'
+import Demo from '../components/Demo/index'
 
 const Home: NextPage = () => {
   return (
@@ -34,13 +35,14 @@ const Home: NextPage = () => {
           </div>
         </Paper>
         <div style={{ marginTop: '2.5rem' }}>
-          <Paper p="md">
+          <Paper p="xs">
             <Trending />
           </Paper>
         </div>
 
         <div style={{ marginTop: '5rem' }} />
         {/*<CMCTable/>*/}
+        <Demo />
       </div>
     </div>
   )

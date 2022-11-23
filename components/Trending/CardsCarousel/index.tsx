@@ -7,26 +7,12 @@ import { useRef } from 'react'
 const useStyles = createStyles((theme) => ({
   card: {
     height: '200px',
+    width: '448px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-  },
-
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    color: theme.white,
-    lineHeight: 1.2,
-    fontSize: 32,
-    marginTop: theme.spacing.xs,
-  },
-
-  category: {
-    color: theme.white,
-    opacity: 0.7,
-    fontWeight: 700,
-    textTransform: 'uppercase',
+    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#f4f6f9',
   },
   carouselIndicator: {
     width: 4,
@@ -49,7 +35,7 @@ function CardRow({}: CardProps) {
     <Paper radius="md" shadow="xs" p="sm" className={classes.card}>
       <div>1</div>
       <div>2</div>
-      <div>2</div>
+      <div>3</div>
     </Paper>
   )
 }
@@ -90,7 +76,7 @@ export default function CardsCarousel() {
       <Carousel
         slideSize="100%"
         breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 1 }]}
-        slideGap="xl"
+        slideGap="sm"
         align="start"
         slidesToScroll={1}
         classNames={{

@@ -3,7 +3,9 @@ import { Paper, createStyles } from '@mantine/core'
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#f9fbfd',
+    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#f4f6f9',
+    height: '200px',
+    width: '100%',
   },
 }))
 

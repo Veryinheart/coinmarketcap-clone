@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
   card: {
     height: 448,
     width: 200,
-    backgroundCOlor: theme.colorScheme === 'dark' ? '#323546' : '#f9fbfd',
+    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#f9fbfd',
   },
 }))
 

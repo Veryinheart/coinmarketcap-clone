@@ -13,6 +13,11 @@ import recent from '../../assets/recent.png'
 import CardsCarousel from './CardsCarousel'
 import TrendingCard from './TrendingCard'
 
+// const useStyles = createStyles((theme) => ({
+//   container: {
+//     backgroundColor: theme.colorScheme === 'light' ? '#f9fbfd' : '#20232c',
+//   },
+// }))
 // const trendingData = [
 //   {
 //     number: 1,

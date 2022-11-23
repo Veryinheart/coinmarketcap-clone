@@ -7,7 +7,7 @@ import Rate from '../../../Common/Rate'
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: ;
+  align-items: center;
   width: auto;
 `
 interface TrendingCardRowData {
@@ -32,7 +32,7 @@ const TrendingCardRow = ({
       <p style={{ opacity: '0.4', marginRight: '1rem' }}>{number}</p>
       <div style={{ display: 'flex', width: '100%' }}>
         <div style={{ margin: '1.25rem 0' }}>
-          {icon && <Image alt="icon" src={icon} width={20} height={20} />}
+          {icon && <Image alt="icon" src={icon} width={16} height={16} />}
         </div>
         <p>
           {name}

@@ -14,7 +14,7 @@ interface TrendingCard {
 }
 
 const TrendingCardWrapper = styled.div`
-  width: auto;
+  width: 448px;
   height: 200px;
 `
 
