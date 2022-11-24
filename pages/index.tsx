@@ -4,8 +4,12 @@ import GlobalStatus from '../components/GlobalStatus/index'
 import Trending from '../components/Trending'
 import { Paper } from '@mantine/core'
 import Demo from '../components/Demo/index'
-
+import { useMantineColorScheme } from '@mantine/core'
 const Home: NextPage = () => {
+  const { colorScheme } = useMantineColorScheme()
+
+  const trendingBackGroundColor = colorScheme === 'dark' ? '#20232e' : '#f9fbfd'
+
   return (
     <div style={{ minHeight: '100vh', width: 'auto' }}>
       <div
@@ -34,10 +38,13 @@ const Home: NextPage = () => {
             <Header />
           </div>
         </Paper>
-        <div style={{ marginTop: '2.5rem' }}>
-          <Paper p="xs">
-            <Trending />
-          </Paper>
+        <div
+          style={{
+            padding: '1.5rem 0',
+            backgroundColor: trendingBackGroundColor,
+          }}
+        >
+          <Trending />
         </div>
 
         <div style={{ marginTop: '5rem' }} />

@@ -1,4 +1,4 @@
-import { Group } from '@mantine/core'
+import { Card, Group } from '@mantine/core'
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
@@ -50,13 +50,22 @@ const TrendingCard = ({ icon, title }: TrendingCard) => {
     <div>
       <TrendingCardWrapper>
         <CardWrapper>
-          <Group position="apart" noWrap>
-            <Group position="left" noWrap>
-              {icon && <Image src={icon} width={20} height={20} alt="logo" />}
-              <p style={{ fontWeight: 'bold' }}>{title}</p>
+          <Card.Section>
+            <Group position="apart" noWrap ml="xs" mr="xs">
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                {icon && <Image src={icon} width={20} height={20} alt="logo" />}
+                &nbsp;&nbsp;
+                <p style={{ fontWeight: 'bold' }}>{title}</p>
+              </div>
+              <MoreButton />
             </Group>
-            <MoreButton />
-          </Group>
+          </Card.Section>
           {trendingData.map((item, index) => {
             return (
               <TrendingCardRow

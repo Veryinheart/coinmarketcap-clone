@@ -9,12 +9,14 @@ const MoreButtonWrapper = styled.div`
   align-items: center;
   cursor: pointer;
   color: #6188ff;
+  font-size: 12px;
 `
 
 const MoreButton = () => {
   return (
     <MoreButtonWrapper>
-      More <RightArrow />
+      <b>More </b>
+      <RightArrow />
     </MoreButtonWrapper>
   )
 }

@@ -5,7 +5,6 @@ import React from 'react'
 const ThemePicker = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
-
   return (
     <ActionIcon
       variant="outline"
