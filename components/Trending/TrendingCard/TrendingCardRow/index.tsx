@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: auto;
+  font-size: 12px;
 `
 interface TrendingCardRowData {
   number?: number
@@ -29,17 +30,17 @@ const TrendingCardRow = ({
 }: TrendingCardRowData) => {
   return (
     <Wrapper>
-      <p style={{ opacity: '0.4', marginRight: '1rem' }}>{number}</p>
-      <div style={{ display: 'flex', width: '100%' }}>
-        <div style={{ margin: '1.25rem 0' }}>
-          {icon && <Image alt="icon" src={icon} width={16} height={16} />}
-        </div>
-        <p>
+      <Wrapper>
+        <b style={{ opacity: '0.4' }}>{number}</b>
+        &nbsp;&nbsp;
+        {icon && <Image alt="icon" src={icon} width={16} height={16} />}
+        &nbsp;
+        <b>
           {name}
           <span style={{ color: '#9CA3AF' }}> {symbol}</span>
-        </p>
-        <Rate isIncrement={isIncrement} rate={rate} />
-      </div>
+        </b>
+      </Wrapper>
+      <Rate isIncrement={isIncrement} rate={rate} />
     </Wrapper>
   )
 }

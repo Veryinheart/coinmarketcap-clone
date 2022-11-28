@@ -1,18 +1,18 @@
 import { Carousel } from '@mantine/carousel'
-import { createStyles, Paper } from '@mantine/core'
+import { createStyles, Card, Group, Center } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import React, { ReactNode } from 'react'
 import { useRef } from 'react'
+import MoreButton from '../../Common/MoreButton'
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: '200px',
-    width: '448px',
+    height: 200,
+    width: 448,
+    padding: '0 16px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#f4f6f9',
+    backgroundColor: theme.colorScheme === 'dark' ? '#323546' : '#ffffff',
   },
   carouselIndicator: {
     width: 4,
@@ -20,7 +20,6 @@ const useStyles = createStyles((theme) => ({
     transition: 'width 250ms ease',
     '&[data-active]': {
       width: 10,
-      color: 'green',
     },
   },
 }))
@@ -32,11 +31,25 @@ function CardRow({}: CardProps) {
   const { classes } = useStyles()
 
   return (
-    <Paper radius="md" shadow="xs" p="sm" className={classes.card}>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-    </Paper>
+    <Card radius="md" shadow="xs" className={classes.card}>
+      <Card.Section>
+        <Group position="apart" noWrap ml="xs" mr="xs">
+          <Center>
+            <span style={{ fontSize: '20px' }}>⭐️</span>
+            &nbsp;&nbsp;
+            <p style={{ fontWeight: 'bold' }}>Top Community Account</p>
+          </Center>
+          <MoreButton />
+        </Group>
+      </Card.Section>
+      <Card.Section>
+        <div>2</div>
+      </Card.Section>
+
+      <Card.Section>
+        <div>2</div>
+      </Card.Section>
+    </Card>
   )
 }
 
@@ -72,7 +85,7 @@ export default function CardsCarousel() {
   const autoplay = useRef(Autoplay({ delay: 3000 }))
 
   return (
-    <div style={{ width: '448px', height: '200px', padding: '16px' }}>
+    <div style={{ width: 448, height: 200, display: 'flex' }} className="hahah">
       <Carousel
         slideSize="100%"
         breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 1 }]}
@@ -83,7 +96,6 @@ export default function CardsCarousel() {
           indicator: classes.carouselIndicator,
         }}
         withControls={false}
-        withIndicators={true}
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}

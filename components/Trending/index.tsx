@@ -50,7 +50,7 @@ const Trending = () => {
   const [toggleHighlights, setToggleHighlights] = useState(true)
 
   return (
-    <Container size="xl">
+    <Container size={1400}>
       <Stack>
         <Group position="apart">
           <Group>
@@ -98,12 +98,19 @@ const Trending = () => {
           )}
         </Group>
         {toggleHighlights && (
-          <Group position="apart" noWrap>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'nowrap',
+              width: '100%',
+            }}
+          >
             <TrendingCard icon={fire} title="Trending" />
             <TrendingCard icon={recent} title="Recent Added" />
-
             <CardsCarousel />
-          </Group>
+          </div>
         )}
       </Stack>
     </Container>

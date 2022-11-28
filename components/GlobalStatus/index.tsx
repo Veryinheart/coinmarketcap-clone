@@ -5,7 +5,7 @@ import ThemePicker from '../ThemePicker'
 import GlobalStatisticText from '../Common/GlobalStatisticText'
 const GlobalStatus = () => {
   return (
-    <Container size="xl">
+    <Container size={1400}>
       <Group position="apart" noWrap>
         <Group noWrap>
           <Text size="xs">

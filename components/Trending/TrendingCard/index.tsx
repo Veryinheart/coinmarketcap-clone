@@ -1,4 +1,4 @@
-import { Card, Group } from '@mantine/core'
+import { Card, Group, Center } from '@mantine/core'
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
@@ -52,17 +52,11 @@ const TrendingCard = ({ icon, title }: TrendingCard) => {
         <CardWrapper>
           <Card.Section>
             <Group position="apart" noWrap ml="xs" mr="xs">
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
+              <Center>
                 {icon && <Image src={icon} width={20} height={20} alt="logo" />}
                 &nbsp;&nbsp;
                 <p style={{ fontWeight: 'bold' }}>{title}</p>
-              </div>
+              </Center>
               <MoreButton />
             </Group>
           </Card.Section>
