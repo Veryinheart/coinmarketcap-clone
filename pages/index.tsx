@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
+import { useMantineColorScheme } from '@mantine/core'
 import Header from '../components/Header'
 import GlobalStatus from '../components/GlobalStatus/index'
 import Trending from '../components/Trending'
 import { Paper } from '@mantine/core'
-import Demo from '../components/Demo/index'
-import { useMantineColorScheme } from '@mantine/core'
+// import Demo from '../components/Demo/index'
+import CMCTable from '../components/CMCTable'
+
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
 
@@ -48,8 +50,8 @@ const Home: NextPage = () => {
         </div>
 
         <div style={{ marginTop: '5rem' }} />
-        {/*<CMCTable/>*/}
-        <Demo />
+        <CMCTable />
+        {/* <Demo /> */}
       </div>
     </div>
   )
