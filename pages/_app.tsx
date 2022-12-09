@@ -5,7 +5,7 @@ import {
   MantineProvider,
 } from '@mantine/core'
 import { useState } from 'react'
-// import { CoinmarketProvider } from '../context/context.ts'
+import GLobalContextProvider from '../context/index'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -34,9 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         }}
       >
-        {/* <CoinmarketProvider> */}
-        <Component {...pageProps} />
-        {/* </CoinmarketProvider> */}
+        <GLobalContextProvider>
+          <Component {...pageProps} />
+        </GLobalContextProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )

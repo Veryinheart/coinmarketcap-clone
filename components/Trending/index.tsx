@@ -12,42 +12,13 @@ import fire from '../../assets/fire.png'
 import recent from '../../assets/recent.png'
 import CardsCarousel from './CardsCarousel'
 import TrendingCard from './TrendingCard'
-
-// const useStyles = createStyles((theme) => ({
-//   container: {
-//     backgroundColor: theme.colorScheme === 'light' ? '#f9fbfd' : '#20232c',
-//   },
-// }))
-// const trendingData = [
-//   {
-//     number: 1,
-//     symbol: 'BTC',
-//     name: 'Bitcoin',
-//     icon: fire,
-//     isIncrement: true,
-//     rate: '2.34%',
-//   },
-//   {
-//     number: 2,
-//     symbol: 'USDT',
-//     name: 'Tether',
-//     icon: fire,
-//     isIncrement: false,
-//     rate: '9.32%',
-//   },
-//   {
-//     number: 1,
-//     symbol: 'BTC',
-//     name: 'Bitcoin',
-//     icon: fire,
-//     isIncrement: true,
-//     rate: '2.34%',
-//   },
-// ]
+import useTrendingData from '../../hooks/useTrendingData'
 
 const Trending = () => {
   const [isReadMore, setIsReadMore] = useState(false)
   const [toggleHighlights, setToggleHighlights] = useState(true)
+
+  useTrendingData()
 
   return (
     <Container size={1400}>

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `
 interface GlobalData {
   name: string
-  data: string
+  data: string | number
 }
 
 const GlobalStatisticText = ({ name, data }: GlobalData) => {

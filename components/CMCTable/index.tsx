@@ -1,26 +1,26 @@
 import {
-  Container,
-  Group,
   Button,
+  Container,
   Divider,
+  Group,
   Select,
-  Text,
   Table,
+  Text,
 } from '@mantine/core'
-import React from 'react'
 import {
-  IconStar,
-  IconChartPie,
   IconAdjustmentsHorizontal,
+  IconChartPie,
+  IconStar,
   IconTable,
 } from '@tabler/icons'
-Container
+
 const CMCTable = () => {
   const rowsData = [
     { value: '100', label: '100' },
     { value: '50', label: '50' },
     { value: '20', label: '20' },
   ]
+
   return (
     <Container size={1400}>
       <Group position="apart" noWrap>

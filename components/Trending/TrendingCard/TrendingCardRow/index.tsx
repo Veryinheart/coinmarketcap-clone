@@ -32,11 +32,11 @@ const TrendingCardRow = ({
     <Wrapper>
       <Wrapper>
         <b style={{ opacity: '0.4' }}>{number}</b>
-        &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
         {icon && <Image alt="icon" src={icon} width={16} height={16} />}
-        &nbsp;
+        &nbsp;&nbsp;
         <b>
-          {name}
+          {name} &nbsp;
           <span style={{ color: '#9CA3AF' }}> {symbol}</span>
         </b>
       </Wrapper>

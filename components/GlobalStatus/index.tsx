@@ -3,29 +3,45 @@ import React from 'react'
 import { IconTriangleInverted, IconCoin } from '@tabler/icons'
 import ThemePicker from '../ThemePicker'
 import GlobalStatisticText from '../Common/GlobalStatisticText'
+import useGlobalData from '../../hooks/useGlobalData'
+
 const GlobalStatus = () => {
+  const { data } = useGlobalData()
+
+  function toThousands(price: string) {
+    return (price || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+  }
+
+  const totalMarketCap =
+    '$' + toThousands(data?.data?.total_market_cap.usd.toString().split('.')[0])
+  const totalVol =
+    '$' + toThousands(data?.data?.total_volume.usd.toString().split('.')[0])
+  const dominance = `BTC ${data?.data?.market_cap_percentage.btc.toFixed(
+    2
+  )}% ETH ${data?.data?.market_cap_percentage.eth.toFixed(2)}%`
+
   return (
     <Container size={1400}>
       <Group position="apart" noWrap>
         <Group noWrap>
           <Text size="xs">
-            <GlobalStatisticText name="Cryptos" data="21612" />
-          </Text>
-          <Text size="xs" color="dimmed" weight={500} component="span">
-            <GlobalStatisticText name="Exchange" data="522" />
-          </Text>
-
-          <Text size="xs" color="dimmed" weight={500} component="span">
             <GlobalStatisticText
-              name=" Market Cap"
-              data="$1,02132973891739212913129"
+              name="Cryptos"
+              data={data?.data?.active_cryptocurrencies}
             />
           </Text>
           <Text size="xs" color="dimmed" weight={500} component="span">
-            <GlobalStatisticText name="24h Vol" data="$87982719012791279" />
+            <GlobalStatisticText name="Exchange" data={data?.data?.markets} />
+          </Text>
+
+          <Text size="xs" color="dimmed" weight={500} component="span">
+            <GlobalStatisticText name=" Market Cap" data={totalMarketCap} />
           </Text>
           <Text size="xs" color="dimmed" weight={500} component="span">
-            <GlobalStatisticText name="Dominance" data="BTC: 39.0% ETH19.5%" />
+            <GlobalStatisticText name="24h Vol" data={totalVol} />
+          </Text>
+          <Text size="xs" color="dimmed" weight={500} component="span">
+            <GlobalStatisticText name="Dominance" data={dominance} />
           </Text>
         </Group>
         <Group noWrap>
