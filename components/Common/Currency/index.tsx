@@ -4,7 +4,7 @@ import { createStyles } from '@mantine/core'
 
 interface CurrencyProps {
   isIncrement?: boolean | undefined
-  currency?: string | number
+  price?: string | number
 }
 
 const useStyles = createStyles(() => ({
@@ -22,12 +22,12 @@ const useStyles = createStyles(() => ({
   },
 }))
 
-const Currency = ({ isIncrement, currency }: CurrencyProps) => {
+const Currency = ({ isIncrement, price }: CurrencyProps) => {
   const { classes } = useStyles()
 
   return (
     <div className={classes.rate}>
-      <p className={isIncrement ? classes.green : classes.red}>${currency}</p>
+      <p className={isIncrement ? classes.green : classes.red}>${price}</p>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { StaticImageData } from 'next/image'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Rate from '../../../Common/Rate'
+import Currency from '../../../Common/Currency'
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,13 +12,14 @@ const Wrapper = styled.div`
   width: auto;
   font-size: 12px;
 `
-interface TrendingCardRowData {
+export interface TrendingCardRowData {
   number?: number
   icon?: string | StaticImageData
   name?: string
   symbol?: string
   isIncrement?: boolean | undefined
   rate?: string
+  price?: string | number
 }
 
 const TrendingCardRow = ({
@@ -27,6 +29,7 @@ const TrendingCardRow = ({
   symbol,
   isIncrement,
   rate,
+  price,
 }: TrendingCardRowData) => {
   return (
     <Wrapper>
@@ -37,10 +40,14 @@ const TrendingCardRow = ({
         &nbsp;&nbsp;
         <b>
           {name} &nbsp;
-          <span style={{ color: '#9CA3AF' }}> {symbol}</span>
+          <span style={{ color: '#9CA3AF' }}> {symbol?.toUpperCase()}</span>
         </b>
       </Wrapper>
-      <Rate isIncrement={isIncrement} rate={rate} />
+      {rate ? (
+        <Rate isIncrement={isIncrement} rate={rate} />
+      ) : (
+        <Currency isIncrement={isIncrement} price={price} />
+      )}
     </Wrapper>
   )
 }

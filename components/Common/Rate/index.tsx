@@ -32,6 +32,7 @@ const Rate = ({ isIncrement, rate }: RateProps) => {
       ) : (
         <ChevronDown fill="#EA3943" />
       )}
+      &nbsp;
       <p className={isIncrement ? classes.green : classes.red}>{rate}</p>
     </div>
   )

@@ -18,7 +18,7 @@ const Trending = () => {
   const [isReadMore, setIsReadMore] = useState(false)
   const [toggleHighlights, setToggleHighlights] = useState(true)
 
-  useTrendingData()
+  const { data } = useTrendingData()
 
   return (
     <Container size={1400}>
@@ -78,8 +78,16 @@ const Trending = () => {
               width: '100%',
             }}
           >
-            <TrendingCard icon={fire} title="Trending" />
-            <TrendingCard icon={recent} title="Recent Added" />
+            <TrendingCard
+              icon={fire}
+              title="Trending"
+              data={data.slice(0, 3)}
+            />
+            <TrendingCard
+              icon={recent}
+              title="Recent Added"
+              data={data.slice(3, 6)}
+            />
             <CardsCarousel />
           </div>
         )}

@@ -3,14 +3,15 @@ import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
 import MoreButton from '../../Common/MoreButton'
-import TrendingCardRow from './TrendingCardRow'
-import btc from '../../../assets/btc.png'
-import usdt from '../../../assets/usdt.png'
+import TrendingCardRow, { TrendingCardRowData } from './TrendingCardRow'
+// import btc from '../../../assets/btc.png'
+// import usdt from '../../../assets/usdt.png'
 import CardWrapper from '../../Common/CardWrapper'
 
 interface TrendingCard {
   icon?: string | StaticImageData
   title?: string
+  data?: TrendingCardRowData[]
 }
 
 const TrendingCardWrapper = styled.div`
@@ -18,34 +19,34 @@ const TrendingCardWrapper = styled.div`
   height: 200px;
 `
 
-const trendingData = [
-  {
-    number: 1,
-    symbol: 'BTC',
-    name: 'Bitcoin',
-    icon: btc,
-    isIncrement: true,
-    rate: '2.34%',
-  },
-  {
-    number: 2,
-    symbol: 'USDT',
-    name: 'Tether',
-    icon: usdt,
-    isIncrement: false,
-    rate: '9.32%',
-  },
-  {
-    number: 3,
-    symbol: 'BTC',
-    name: 'Bitcoin',
-    icon: btc,
-    isIncrement: true,
-    rate: '2.34%',
-  },
-]
+// const trendingData = [
+//   {
+//     number: 1,
+//     symbol: 'BTC',
+//     name: 'Bitcoin',
+//     icon: btc,
+//     isIncrement: true,
+//     rate: '2.34%',
+//   },
+//   {
+//     number: 2,
+//     symbol: 'USDT',
+//     name: 'Tether',
+//     icon: usdt,
+//     isIncrement: false,
+//     rate: '9.32%',
+//   },
+//   {
+//     number: 3,
+//     symbol: 'BTC',
+//     name: 'Bitcoin',
+//     icon: btc,
+//     isIncrement: true,
+//     rate: '2.34%',
+//   },
+// ]
 
-const TrendingCard = ({ icon, title }: TrendingCard) => {
+const TrendingCard = ({ icon, title, data }: TrendingCard) => {
   return (
     <div>
       <TrendingCardWrapper>
@@ -60,19 +61,31 @@ const TrendingCard = ({ icon, title }: TrendingCard) => {
               <MoreButton />
             </Group>
           </Card.Section>
-          {trendingData.map((item, index) => {
-            return (
-              <TrendingCardRow
-                key={index}
-                number={item.number}
-                symbol={item.symbol}
-                name={item.name}
-                icon={item.icon}
-                isIncrement={item.isIncrement}
-                rate={item.rate}
-              />
-            )
-          })}
+          {data &&
+            data?.map((item, index) => {
+              return title === 'Trending' ? (
+                <TrendingCardRow
+                  key={index}
+                  number={item.number}
+                  symbol={item.symbol}
+                  name={item.name}
+                  icon={item.icon}
+                  isIncrement={item.isIncrement}
+                  rate={item.rate}
+                  price={item.price}
+                />
+              ) : (
+                <TrendingCardRow
+                  key={index}
+                  number={item.number}
+                  symbol={item.symbol}
+                  name={item.name}
+                  icon={item.icon}
+                  isIncrement={item.isIncrement}
+                  price={item.price}
+                />
+              )
+            })}
         </CardWrapper>
       </TrendingCardWrapper>
     </div>
