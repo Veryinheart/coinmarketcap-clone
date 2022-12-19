@@ -18,7 +18,7 @@ export interface TrendingCardRowData {
   name?: string
   symbol?: string
   isIncrement?: boolean | undefined
-  rate?: string
+  rate?: string | number
   price?: string | number
 }
 

@@ -45,7 +45,7 @@ const useTrendingData = () => {
               symbol: item.symbol,
               icon: item.image?.small,
               isIncrement: item.market_data.price_change_percentage_24h > 0,
-              rate: item.market_data.price_change_percentage_24h,
+              rate: item?.market_data.price_change_percentage_24h.toFixed(2),
               price: item.market_data.current_price.usd,
             })
           })

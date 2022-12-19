@@ -32,7 +32,7 @@ const Trending = () => {
               checked={toggleHighlights}
               size="md"
               labelPosition="left"
-              label="Highlight"
+              label="Hightlight"
               onClick={() => {
                 setToggleHighlights(!toggleHighlights)
               }}

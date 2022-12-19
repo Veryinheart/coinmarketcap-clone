@@ -4,13 +4,14 @@ import ChevronUp from '../../../assets/svg/chevronUp'
 
 interface RateProps {
   isIncrement?: boolean | undefined
-  rate?: string
+  rate?: string | number
 }
 
 const useStyles = createStyles(() => ({
   rate: {
     display: 'flex',
     alignItems: 'center',
+    fontSize: '12px',
   },
   red: {
     marginLeft: '0.5 rem',
@@ -33,7 +34,7 @@ const Rate = ({ isIncrement, rate }: RateProps) => {
         <ChevronDown fill="#EA3943" />
       )}
       &nbsp;
-      <p className={isIncrement ? classes.green : classes.red}>{rate}</p>
+      <p className={isIncrement ? classes.green : classes.red}>{rate}%</p>
     </div>
   )
 }
