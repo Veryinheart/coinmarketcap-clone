@@ -52,6 +52,9 @@ const Home: NextPage = () => {
         <div style={{ marginTop: '5rem' }} />
         <CMCTable />
         {/* <Demo /> */}
+        {/* <div>
+          <img src={'https://www.coingecko.com/coins/1/sparkline'} alt='hah' />
+        </div> */}
       </div>
     </div>
   )

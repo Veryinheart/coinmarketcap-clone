@@ -7,6 +7,7 @@ const nextConfig = {
       's2.coinmarketcap.com',
       's3.coinmarketcap.com',
       'assets.coingecko.com',
+      'www.coingecko.com',
     ],
   },
 }

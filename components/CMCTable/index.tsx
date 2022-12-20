@@ -6,18 +6,24 @@ import {
   Select,
   Table,
   Text,
+  Stack,
+  Progress,
+  Popover,
+  UnstyledButton,
 } from '@mantine/core'
 import {
   IconAdjustmentsHorizontal,
   IconChartPie,
   IconStar,
   IconTable,
+  IconDotsVertical,
 } from '@tabler/icons'
 import useCoinList from '../../hooks/useCoinList'
 import Currency from '../Common/Currency'
 import Rate from '../Common/Rate'
 import { CoinRow } from './types'
 import Image from 'next/image'
+import { toThousands } from '../../utils/compute'
 
 const CMCTable = () => {
   const rowsData = [
@@ -26,20 +32,27 @@ const CMCTable = () => {
     { value: '20', label: '20' },
   ]
 
-  const { data } = useCoinList()
+  const getSparkingChart = (path: string) => {
+    const id = path.split('/')[5]
+    return `https://www.coingecko.com/coins/${id}/sparkline.svg`
+  }
 
+  const { data } = useCoinList()
   console.log(data)
 
-  const rows = data.map((row: CoinRow) => (
+  const rows = data?.map((row: CoinRow) => (
     <tr key={row.id}>
       <td>
         <IconStar size={15} onClick={() => console.log('1')} />
       </td>
       <td>{row.market_cap_rank}</td>
       <td>
-        <Group>
+        <Group spacing="xs">
           {<Image alt="icon" src={row.image} width={24} height={24} />}{' '}
-          <b>{row.name}</b> {row.symbol.toUpperCase()}
+          <Text weight={700}>{row.name}</Text>{' '}
+          <Text weight={700} color="gray">
+            {row.symbol.toUpperCase()}
+          </Text>
         </Group>
       </td>
       <td>
@@ -66,11 +79,52 @@ const CMCTable = () => {
           rate={row.price_change_percentage_7d_in_currency.toFixed(2)}
         />
       </td>
-      <td>${row.market_cap}</td>
-      <td>${row.total_volume}</td>
-      <td>{row.total_supply}</td>
-      <td>svg</td>
-      <td>2</td>
+      <td>${toThousands(row.market_cap.toString())}</td>
+      <td>${toThousands(row.total_volume.toString())}</td>
+      <td>
+        <Stack>
+          <Text>
+            {toThousands(row.circulating_supply.toFixed(0).toString())}{' '}
+            {row.symbol.toUpperCase()}
+          </Text>
+          {row.circulating_supply / row.total_supply < 1 ? (
+            <Progress
+              color="gray"
+              size="sm"
+              value={(row.circulating_supply / row.total_supply) * 100}
+            />
+          ) : null}
+        </Stack>
+      </td>
+      <td>
+        <Image
+          src={getSparkingChart(row.image)}
+          alt={`coin sparking chart`}
+          width="135"
+          height="50"
+        />
+      </td>
+      <td>
+        <Popover width={190} position="bottom" withArrow shadow="md">
+          <Popover.Target>
+            <UnstyledButton>
+              <IconDotsVertical />
+            </UnstyledButton>
+          </Popover.Target>
+
+          <Popover.Dropdown>
+            <Button variant="subtle" color="dark">
+              View Charts
+            </Button>
+            <Button variant="subtle" color="dark">
+              View Markets
+            </Button>
+            <Button variant="subtle" color="dark">
+              View Historial Data
+            </Button>
+          </Popover.Dropdown>
+        </Popover>
+      </td>
     </tr>
   ))
 

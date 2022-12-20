@@ -4,13 +4,10 @@ import { IconTriangleInverted, IconCoin } from '@tabler/icons'
 import ThemePicker from '../ThemePicker'
 import GlobalStatisticText from '../Common/GlobalStatisticText'
 import useGlobalData from '../../hooks/useGlobalData'
+import { toThousands } from '../../utils/compute'
 
 const GlobalStatus = () => {
   const { data } = useGlobalData()
-
-  function toThousands(price: string) {
-    return (price || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
-  }
 
   const totalMarketCap =
     '$' + toThousands(data?.data?.total_market_cap.usd.toString().split('.')[0])
