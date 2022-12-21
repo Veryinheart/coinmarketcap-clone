@@ -1,10 +1,10 @@
 import { Carousel } from '@mantine/carousel'
-import { createStyles, Card, Group, Center } from '@mantine/core'
+import { createStyles, Card, Group, Center, Text, Button } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import React, { ReactNode } from 'react'
 import { useRef } from 'react'
 import MoreButton from '../../Common/MoreButton'
-
+import Image from 'next/image'
 const useStyles = createStyles((theme) => ({
   card: {
     height: 200,
@@ -23,11 +23,12 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }))
+
 interface CardProps {
   content?: ReactNode
 }
 
-function CardRow({}: CardProps) {
+function CarouselCardFirst({}: CardProps) {
   const { classes } = useStyles()
 
   return (
@@ -43,7 +44,25 @@ function CardRow({}: CardProps) {
         </Group>
       </Card.Section>
       <Card.Section>
-        <div>2</div>
+        <Group position="apart" noWrap ml="xs" mr="xs">
+          <Group>
+            <Image
+              src={
+                'https://s3.coinmarketcap.com/static/img/portraits/62e88280ae5a2d740c0774fd.png'
+              }
+              alt="account_logo"
+              width={25}
+              height={25}
+            />
+            <Text>
+              <b>Qtum_Foundation &nbsp;</b>{' '}
+            </Text>
+          </Group>
+
+          <Button variant="light" color="dark" size="xs">
+            + Follow
+          </Button>
+        </Group>
       </Card.Section>
 
       <Card.Section>
@@ -79,7 +98,7 @@ export default function CardsCarousel() {
 
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <CardRow />
+      <CarouselCardFirst />
     </Carousel.Slide>
   ))
   const autoplay = useRef(Autoplay({ delay: 3000 }))
