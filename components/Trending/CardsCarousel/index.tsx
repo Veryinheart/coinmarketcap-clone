@@ -1,10 +1,10 @@
 import { Carousel } from '@mantine/carousel'
-import { createStyles, Card, Group, Center, Text, Button } from '@mantine/core'
+import { createStyles } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { useRef } from 'react'
-import MoreButton from '../../Common/MoreButton'
-import Image from 'next/image'
+import TopAccounts from './TopAccounts'
+
 const useStyles = createStyles((theme) => ({
   card: {
     height: 200,
@@ -23,54 +23,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }))
-
-interface CardProps {
-  content?: ReactNode
-}
-
-function CarouselCardFirst({}: CardProps) {
-  const { classes } = useStyles()
-
-  return (
-    <Card radius="md" shadow="xs" className={classes.card}>
-      <Card.Section>
-        <Group position="apart" noWrap ml="xs" mr="xs">
-          <Center>
-            <span style={{ fontSize: '20px' }}>⭐️</span>
-            &nbsp;&nbsp;
-            <p style={{ fontWeight: 'bold' }}>Top Community Account</p>
-          </Center>
-          <MoreButton />
-        </Group>
-      </Card.Section>
-      <Card.Section>
-        <Group position="apart" noWrap ml="xs" mr="xs">
-          <Group>
-            <Image
-              src={
-                'https://s3.coinmarketcap.com/static/img/portraits/62e88280ae5a2d740c0774fd.png'
-              }
-              alt="account_logo"
-              width={25}
-              height={25}
-            />
-            <Text>
-              <b>Qtum_Foundation &nbsp;</b>{' '}
-            </Text>
-          </Group>
-
-          <Button variant="light" color="dark" size="xs">
-            + Follow
-          </Button>
-        </Group>
-      </Card.Section>
-
-      <Card.Section>
-        <div>2</div>
-      </Card.Section>
-    </Card>
-  )
-}
 
 const data = [
   {
@@ -98,7 +50,7 @@ export default function CardsCarousel() {
 
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <CarouselCardFirst />
+      <TopAccounts />
     </Carousel.Slide>
   ))
   const autoplay = useRef(Autoplay({ delay: 3000 }))

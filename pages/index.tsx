@@ -10,7 +10,10 @@ import CMCTable from '../components/CMCTable'
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
 
-  const trendingBackGroundColor = colorScheme === 'dark' ? '#20232e' : '#f9fbfd'
+  const trendingBackGroundColor =
+    colorScheme === 'dark'
+      ? 'linear-gradient(#222430, #18191e)'
+      : 'linear-gradient(#f8fafd, #fff)'
 
   return (
     <div style={{ minHeight: '100vh', width: 'auto' }}>
@@ -43,7 +46,7 @@ const Home: NextPage = () => {
         <div
           style={{
             padding: '1.5rem 0',
-            backgroundColor: trendingBackGroundColor,
+            backgroundImage: trendingBackGroundColor,
           }}
         >
           <Trending />
