@@ -19,33 +19,6 @@ const TrendingCardWrapper = styled.div`
   height: 200px;
 `
 
-// const trendingData = [
-//   {
-//     number: 1,
-//     symbol: 'BTC',
-//     name: 'Bitcoin',
-//     icon: btc,
-//     isIncrement: true,
-//     rate: '2.34%',
-//   },
-//   {
-//     number: 2,
-//     symbol: 'USDT',
-//     name: 'Tether',
-//     icon: usdt,
-//     isIncrement: false,
-//     rate: '9.32%',
-//   },
-//   {
-//     number: 3,
-//     symbol: 'BTC',
-//     name: 'Bitcoin',
-//     icon: btc,
-//     isIncrement: true,
-//     rate: '2.34%',
-//   },
-// ]
-
 const TrendingCard = ({ icon, title, data }: TrendingCard) => {
   return (
     <div>

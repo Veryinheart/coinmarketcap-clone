@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const trendingBackGroundColor =
     colorScheme === 'dark'
       ? 'linear-gradient(#222430, #18191e)'
-      : 'linear-gradient(#f8fafd, #fff)'
+      : 'linear-gradient(#f8fafd, #f9fafb)'
 
   return (
     <div style={{ minHeight: '100vh', width: 'auto' }}>

@@ -10,7 +10,7 @@ import {
 import React, { ReactNode } from 'react'
 import MoreButton from '../../Common/MoreButton'
 import Image from 'next/image'
-import { IconMessageCircle, IconHeart } from '@tabler/icons'
+import { IconEye, IconHeart } from '@tabler/icons'
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -27,9 +27,8 @@ interface CardProps {
   content?: ReactNode
 }
 
-const TopPosts = ({}: CardProps) => {
+const TopArticle = ({}: CardProps) => {
   const { classes } = useStyles()
-
   return (
     <Card radius="md" shadow="xs" className={classes.card}>
       <Card.Section>
@@ -37,7 +36,7 @@ const TopPosts = ({}: CardProps) => {
           <Center>
             <span style={{ fontSize: '20px' }}>⭐️</span>
             &nbsp;&nbsp;
-            <p style={{ fontWeight: 'bold' }}>Top Community Posts</p>
+            <p style={{ fontWeight: 'bold' }}>Top Community Article</p>
           </Center>
           <MoreButton />
         </Group>
@@ -53,46 +52,44 @@ const TopPosts = ({}: CardProps) => {
         >
           <Avatar
             src={
-              'https://s3.coinmarketcap.com/static/img/portraits/62876e92bedeb632050eb4ae.png'
+              'https://academy-public.coinmarketcap.com/srd-optimized-uploads/3221dd2a1aa24f50a1c2db78dd6f525a.png'
             }
             alt="logo"
-            radius="xl"
+            radius="sm"
+            size="xl"
           />
-
           <Stack sx={{ marginLeft: '5px' }}>
             <Group noWrap position="left" spacing={3}>
-              <b>BNB Chain</b>
               <Image
                 src={
-                  'https://s2.coinmarketcap.com/static/cloud/img/icon/certified.svg?_=f124081.svg'
+                  'https://s3.coinmarketcap.com/static/img/portraits/6225bb3ee89bc32c2edec857.png'
                 }
                 alt="certified"
                 height={15}
                 width={15}
               />
               <Text size="xs" color="gray">
-                @BNB Chain
+                ApolloX
               </Text>
             </Group>
 
             <Text size="sm">
-              Find out how you can earn a Special Festive Prize with 12 Days of
-              NFTs wit BNB Chain and Opensea ...
+              Crypto News of the Day: Binanace buys TokoCrypto and Voyager...
             </Text>
             <Group position="left" spacing="xs">
               <Text size="sm" color="gray">
                 {' '}
                 Dec 20 ·{' '}
               </Text>
-              <IconMessageCircle color="gray" size="16px" />
+              <IconEye color="gray" size="16px" />
               <Text size="sm" color="gray">
                 {' '}
-                5 ·{' '}
+                287 ·{' '}
               </Text>
               <IconHeart color="gray" size="16px" />
               <Text size="sm" color="gray">
                 {' '}
-                462{' '}
+                10{' '}
               </Text>
             </Group>
           </Stack>
@@ -102,4 +99,4 @@ const TopPosts = ({}: CardProps) => {
   )
 }
 
-export default TopPosts
+export default TopArticle

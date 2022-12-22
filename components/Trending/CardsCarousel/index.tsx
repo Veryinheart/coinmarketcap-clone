@@ -3,8 +3,9 @@ import { createStyles } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
 import { useRef } from 'react'
-import TopAccounts from './TopAccounts'
-
+//import TopAccounts from './TopAccounts'
+//import TopPosts from './TopPosts'
+import TopArticle from './TopArticle'
 const useStyles = createStyles((theme) => ({
   card: {
     height: 200,
@@ -50,7 +51,7 @@ export default function CardsCarousel() {
 
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
-      <TopAccounts />
+      <TopArticle />
     </Carousel.Slide>
   ))
   const autoplay = useRef(Autoplay({ delay: 3000 }))
