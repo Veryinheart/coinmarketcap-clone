@@ -11,6 +11,7 @@ import React, { ReactNode } from 'react'
 import MoreButton from '../../Common/MoreButton'
 import Image from 'next/image'
 import { IconEye, IconHeart } from '@tabler/icons'
+import { useMantineColorScheme } from '@mantine/core'
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -29,6 +30,11 @@ interface CardProps {
 
 const TopArticle = ({}: CardProps) => {
   const { classes } = useStyles()
+
+  const { colorScheme } = useMantineColorScheme()
+
+  const fontColor = colorScheme === 'dark' ? '#858CA2' : '#808A9D'
+
   return (
     <Card radius="md" shadow="xs" className={classes.card}>
       <Card.Section>
@@ -58,8 +64,8 @@ const TopArticle = ({}: CardProps) => {
             radius="sm"
             size="xl"
           />
-          <Stack sx={{ marginLeft: '5px' }}>
-            <Group noWrap position="left" spacing={3}>
+          <Stack sx={{ marginLeft: '10px' }}>
+            <Group noWrap position="left" spacing={5}>
               <Image
                 src={
                   'https://s3.coinmarketcap.com/static/img/portraits/6225bb3ee89bc32c2edec857.png'
@@ -68,26 +74,26 @@ const TopArticle = ({}: CardProps) => {
                 height={15}
                 width={15}
               />
-              <Text size="xs" color="gray">
+              <Text size="xs" color={fontColor}>
                 ApolloX
               </Text>
             </Group>
 
-            <Text size="sm">
+            <Text size="sm" mr="xs">
               Crypto News of the Day: Binanace buys TokoCrypto and Voyager...
             </Text>
             <Group position="left" spacing="xs">
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 Dec 20 ·{' '}
               </Text>
               <IconEye color="gray" size="16px" />
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 287 ·{' '}
               </Text>
               <IconHeart color="gray" size="16px" />
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 10{' '}
               </Text>

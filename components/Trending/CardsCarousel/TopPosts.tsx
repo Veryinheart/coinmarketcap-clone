@@ -11,6 +11,7 @@ import React, { ReactNode } from 'react'
 import MoreButton from '../../Common/MoreButton'
 import Image from 'next/image'
 import { IconMessageCircle, IconHeart } from '@tabler/icons'
+import { useMantineColorScheme } from '@mantine/core'
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -29,6 +30,9 @@ interface CardProps {
 
 const TopPosts = ({}: CardProps) => {
   const { classes } = useStyles()
+  const { colorScheme } = useMantineColorScheme()
+
+  const fontColor = colorScheme === 'dark' ? '#858CA2' : '#808A9D'
 
   return (
     <Card radius="md" shadow="xs" className={classes.card}>
@@ -70,7 +74,7 @@ const TopPosts = ({}: CardProps) => {
                 height={15}
                 width={15}
               />
-              <Text size="xs" color="gray">
+              <Text size="xs" color={fontColor}>
                 @BNB Chain
               </Text>
             </Group>
@@ -80,17 +84,17 @@ const TopPosts = ({}: CardProps) => {
               NFTs wit BNB Chain and Opensea ...
             </Text>
             <Group position="left" spacing="xs">
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 Dec 20 ·{' '}
               </Text>
               <IconMessageCircle color="gray" size="16px" />
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 5 ·{' '}
               </Text>
               <IconHeart color="gray" size="16px" />
-              <Text size="sm" color="gray">
+              <Text size="sm" color={fontColor}>
                 {' '}
                 462{' '}
               </Text>

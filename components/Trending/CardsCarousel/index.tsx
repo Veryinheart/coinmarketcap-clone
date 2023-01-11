@@ -20,8 +20,9 @@ const useStyles = createStyles((theme) => ({
     width: 4,
     height: 4,
     transition: 'width 250ms ease',
+
     '&[data-active]': {
-      width: 10,
+      width: 16,
     },
   },
 }))
@@ -46,13 +47,13 @@ export default function CardsCarousel() {
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
       >
-        <Carousel.Slide>
+        <Carousel.Slide key="accounts">
           <TopAccounts />
         </Carousel.Slide>
-        <Carousel.Slide>
+        <Carousel.Slide key="posts">
           <TopPosts />
         </Carousel.Slide>
-        <Carousel.Slide>
+        <Carousel.Slide key="articles">
           <TopArticle />
         </Carousel.Slide>
       </Carousel>

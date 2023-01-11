@@ -10,6 +10,7 @@ import {
   Progress,
   Popover,
   UnstyledButton,
+  Pagination,
 } from '@mantine/core'
 import {
   IconAdjustmentsHorizontal,
@@ -38,7 +39,6 @@ const CMCTable = () => {
   }
 
   const { data } = useCoinList()
-  console.log(data)
 
   const rows = data?.map((row: CoinRow) => (
     <tr key={row.id}>
@@ -246,6 +246,22 @@ const CMCTable = () => {
         </thead>
         <tbody>{rows}</tbody>
       </Table>
+      <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <Group position="apart" noWrap>
+          <Text>Showing 401 - 500 out of 8864</Text>
+          <Pagination total={20} siblings={1} initialPage={10} />
+          <Group noWrap>
+            <Text style={{ fontSize: '12px' }}>Show rows: </Text>
+            <Select
+              data={rowsData}
+              size="xs"
+              defaultValue="100"
+              variant="filled"
+              style={{ maxWidth: 60 }}
+            />
+          </Group>
+        </Group>
+      </div>
     </Container>
   )
 }
