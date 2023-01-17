@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import {
   Button,
   Container,
@@ -19,14 +20,65 @@ import {
   IconTable,
   IconDotsVertical,
 } from '@tabler/icons'
-import useCoinList from '../../hooks/useCoinList'
+//import useCoinList from '../../hooks/useCoinList'
 import Currency from '../Common/Currency'
 import Rate from '../Common/Rate'
 import { CoinRow } from './types'
 import Image from 'next/image'
 import { toThousands } from '../../utils/compute'
+import { getCoinList } from '../../lib/coins'
+
+// const useStyles = createStyles((theme) => ({
+//   header: {
+//     position: 'sticky',
+//     top: 0,
+//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+//     transition: 'box-shadow 150ms ease',
+
+//     '&::after': {
+//       content: '""',
+//       position: 'absolute',
+//       left: 0,
+//       right: 0,
+//       bottom: 0,
+//       borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[2]
+//         }`,
+//     },
+//   },
+
+//   scrolled: {
+//     boxShadow: theme.shadows.sm,
+//   },
+// }));
 
 const CMCTable = () => {
+  const [pagination, setPagination] = useState<{
+    page: string
+    per_page: string
+  }>({ page: '1', per_page: '20' })
+  const [coinsData, setCoinsData] = useState<CoinRow[]>()
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getCoinList('/coins/markets', {
+        ...pagination,
+        vs_currency: 'usd',
+        order: 'market_cap_desc',
+        sparkline: false,
+      })
+      setCoinsData(data)
+      console.log(data)
+    }
+    getData()
+  }, [pagination])
+
+  const handlePerPage = (value: string) => {
+    setPagination({ ...pagination, per_page: value })
+  }
+  const handlePage = (value: number) => {
+    console.log(value)
+    setPagination({ ...pagination, page: value.toString() })
+  }
+
   const rowsData = [
     { value: '100', label: '100' },
     { value: '50', label: '50' },
@@ -38,9 +90,9 @@ const CMCTable = () => {
     return `https://www.coingecko.com/coins/${id}/sparkline.svg`
   }
 
-  const { data } = useCoinList()
+  // const { data } = useCoinList()
 
-  const rows = data?.map((row: CoinRow) => (
+  const rows = coinsData?.map((row: CoinRow) => (
     <tr key={row.id}>
       <td>
         <IconStar size={15} onClick={() => console.log('1')} />
@@ -64,19 +116,19 @@ const CMCTable = () => {
       <td>
         <Rate
           isIncrement={row.price_change_percentage_1h_in_currency > 0}
-          rate={row.price_change_percentage_1h_in_currency.toFixed(2)}
+          rate={row?.price_change_percentage_1h_in_currency?.toFixed(2)}
         />
       </td>
       <td>
         <Rate
           isIncrement={row.price_change_percentage_24h_in_currency > 0}
-          rate={row.price_change_percentage_24h_in_currency.toFixed(2)}
+          rate={row?.price_change_percentage_24h_in_currency?.toFixed(2)}
         />
       </td>
       <td>
         <Rate
-          isIncrement={row.price_change_percentage_7d_in_currency > 0}
-          rate={row.price_change_percentage_7d_in_currency.toFixed(2)}
+          isIncrement={row?.price_change_percentage_7d_in_currency > 0}
+          rate={row?.price_change_percentage_7d_in_currency?.toFixed(2)}
         />
       </td>
       <td>${toThousands(row.market_cap.toString())}</td>
@@ -185,6 +237,7 @@ const CMCTable = () => {
               defaultValue="100"
               variant="filled"
               style={{ maxWidth: 60 }}
+              onChange={(value: string) => handlePerPage(value)}
             />
           </Group>
           <Button
@@ -208,7 +261,8 @@ const CMCTable = () => {
         </Group>
       </Group>
       <Divider my="xs" />
-      <Table horizontalSpacing="lg" highlightOnHover>
+
+      <Table horizontalSpacing="lg" highlightOnHover sx={{ minWidth: 700 }}>
         <thead>
           <tr>
             <th></th>
@@ -246,10 +300,19 @@ const CMCTable = () => {
         </thead>
         <tbody>{rows}</tbody>
       </Table>
+
       <div style={{ marginTop: '10px', marginBottom: '20px' }}>
         <Group position="apart" noWrap>
-          <Text>Showing 401 - 500 out of 8864</Text>
-          <Pagination total={20} siblings={1} initialPage={10} />
+          <Text>
+            Showing {(+pagination.page - 1) * +pagination.per_page + 1} -{' '}
+            {+pagination.page * +pagination.per_page} out of 8864
+          </Text>
+          <Pagination
+            total={20}
+            siblings={1}
+            initialPage={+pagination.page}
+            onChange={(page: number) => handlePage(page)}
+          />
           <Group noWrap>
             <Text style={{ fontSize: '12px' }}>Show rows: </Text>
             <Select
