@@ -64,6 +64,7 @@ const CMCTable = () => {
         vs_currency: 'usd',
         order: 'market_cap_desc',
         sparkline: false,
+        price_change_percentage: '1h,24h,7d',
       })
       setCoinsData(data)
       console.log(data)
@@ -234,7 +235,7 @@ const CMCTable = () => {
             <Select
               data={rowsData}
               size="xs"
-              defaultValue="100"
+              defaultValue={pagination.per_page}
               variant="filled"
               style={{ maxWidth: 60 }}
               onChange={(value: string) => handlePerPage(value)}
@@ -318,9 +319,10 @@ const CMCTable = () => {
             <Select
               data={rowsData}
               size="xs"
-              defaultValue="100"
+              defaultValue={pagination.per_page}
               variant="filled"
               style={{ maxWidth: 60 }}
+              onChange={(value: string) => handlePerPage(value)}
             />
           </Group>
         </Group>
