@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import { createContext } from 'react'
 
 interface AppContextInterface {
@@ -20,4 +20,7 @@ const GLobalContextProvider = ({ children }: Props) => {
   return <AppCtx.Provider value={sampleAppContext}>{children}</AppCtx.Provider>
 }
 
+export function useGlobalContext() {
+  return useContext(AppCtx)
+}
 export default GLobalContextProvider

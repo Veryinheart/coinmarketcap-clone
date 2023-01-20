@@ -5,9 +5,15 @@ import ThemePicker from '../ThemePicker'
 import GlobalStatisticText from '../Common/GlobalStatisticText'
 import useGlobalData from '../../hooks/useGlobalData'
 import { toThousands } from '../../utils/compute'
+import { useGlobalContext } from '../../context'
 
 const GlobalStatus = () => {
   const { data } = useGlobalData()
+  const globalContext = useGlobalContext()
+  if (globalContext !== null) {
+    const { name, author } = globalContext
+    console.log(name, author)
+  }
 
   const totalMarketCap =
     '$' + toThousands(data?.data?.total_market_cap.usd.toString().split('.')[0])

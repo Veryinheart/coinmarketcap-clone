@@ -6,6 +6,7 @@ import Trending from '../components/Trending'
 import { Paper } from '@mantine/core'
 // import Demo from '../components/Demo/index'
 import CMCTable from '../components/CMCTable'
+import Banner from '../components/Banner'
 
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
@@ -54,7 +55,8 @@ const Home: NextPage = () => {
 
         <div style={{ marginTop: '5rem' }} />
         <CMCTable />
-        {/* <Demo /> */}
+        <div style={{ marginTop: '5rem' }} />
+        <Banner />
         {/* <div>
           <img src={'https://www.coingecko.com/coins/1/sparkline'} alt='hah' />
         </div> */}

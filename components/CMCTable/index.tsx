@@ -309,7 +309,7 @@ const CMCTable = () => {
             {+pagination.page * +pagination.per_page} out of 8864
           </Text>
           <Pagination
-            total={20}
+            total={444}
             siblings={1}
             initialPage={+pagination.page}
             onChange={(page: number) => handlePage(page)}
