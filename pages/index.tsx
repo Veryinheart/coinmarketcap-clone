@@ -3,11 +3,11 @@ import { useMantineColorScheme } from '@mantine/core'
 import Header from '../components/Header'
 import GlobalStatus from '../components/GlobalStatus/index'
 import Trending from '../components/Trending'
-import { Paper } from '@mantine/core'
+import { Paper, Group } from '@mantine/core'
 // import Demo from '../components/Demo/index'
 import CMCTable from '../components/CMCTable'
 import Banner from '../components/Banner'
-
+import Footer from '../components/Footer'
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
 
@@ -55,8 +55,10 @@ const Home: NextPage = () => {
 
         <div style={{ marginTop: '5rem' }} />
         <CMCTable />
-        <div style={{ marginTop: '5rem' }} />
         <Banner />
+        <Group grow position="center">
+          <Footer />
+        </Group>
         {/* <div>
           <img src={'https://www.coingecko.com/coins/1/sparkline'} alt='hah' />
         </div> */}

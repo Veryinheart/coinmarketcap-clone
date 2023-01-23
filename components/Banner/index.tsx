@@ -1,16 +1,16 @@
-import { Container, Center, Group, Stack, Text, Button } from '@mantine/core'
+import { Container, Center, Group, Stack, Title, Button } from '@mantine/core'
 import React from 'react'
 import Image from 'next/image'
 const Banner = () => {
   return (
-    <div style={{ height: '572px' }}>
+    <div style={{ height: '100%', backgroundColor: '#f8fafd' }}>
       <Container size={1400}>
         <Center>
-          <Group>
+          <Group grow>
             <Stack align="flex-start" spacing="xs">
-              <Text>
+              <Title order={1}>
                 Be the first to know about <b>crypto news every day</b>
-              </Text>
+              </Title>
               Get crypto analysis, news and updates right to your inbox! Sign up
               here so you don&lsquo;t miss a single newsletter.
               <Button>Subscribe now</Button>

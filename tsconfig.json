@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "assets/svg/chevronDown.js"
+    "assets/svg/chevronDown.js",
+    "components/Footer/data.js"
   ],
   "exclude": ["node_modules"]
 }

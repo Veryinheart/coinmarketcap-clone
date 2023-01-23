@@ -4,7 +4,6 @@ import {
   Container,
   ActionIcon,
   Group,
-  Image,
   useMantineColorScheme,
 } from '@mantine/core'
 import {
@@ -12,16 +11,16 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from '@tabler/icons'
+import Image from 'next/image'
+import { mockData } from './data'
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    maxWidth: 1400,
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[6]
-        : theme.colors.gray[0],
+      theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#ffffff',
     borderTop: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -49,7 +48,7 @@ const useStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
     justifyContent: 'space-between',
-
+    maxWidth: 1400,
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -93,15 +92,15 @@ const useStyles = createStyles((theme) => ({
   },
 
   afterFooter: {
+    maxWidth: 1400,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
+    // borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
+    //   }`,
 
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column',
@@ -116,21 +115,23 @@ const useStyles = createStyles((theme) => ({
 }))
 
 interface FooterLinksProps {
-  data: {
+  data?: {
     title: string
     links: { label: string; link: string }[]
   }[]
 }
 
-export function FooterLinks({ data }: FooterLinksProps) {
+function FooterLinks() {
   const { classes } = useStyles()
+  const { data }: FooterLinksProps = mockData
 
-  const groups = data.map((group) => {
+  const groups = data?.map((group) => {
     const links = group.links.map((link, index) => (
       <Text<'a'>
         key={index}
         className={classes.link}
         component="a"
+        underline={false}
         href={link.link}
         onClick={(event) => event.preventDefault()}
       >
@@ -158,9 +159,6 @@ export function FooterLinks({ data }: FooterLinksProps) {
       <Container className={classes.inner}>
         <div className={classes.logo}>
           <Image src={logoUrl} alt="logo" width={180} height={50} />
-          <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
-          </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
@@ -184,3 +182,5 @@ export function FooterLinks({ data }: FooterLinksProps) {
     </footer>
   )
 }
+
+export default FooterLinks
