@@ -8,6 +8,7 @@ import { Paper, Group } from '@mantine/core'
 import CMCTable from '../components/CMCTable'
 import Banner from '../components/Banner'
 import Footer from '../components/Footer'
+
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
 
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
       : 'linear-gradient(#f8fafd, #f9fafb)'
 
   return (
-    <div style={{ minHeight: '100vh', width: 'auto' }}>
+    <div style={{ minHeight: '100vh', maxWidth: '100vw' }}>
       <div
         style={{
           display: 'flex',
@@ -59,6 +60,7 @@ const Home: NextPage = () => {
         <Group grow position="center">
           <Footer />
         </Group>
+
         {/* <div>
           <img src={'https://www.coingecko.com/coins/1/sparkline'} alt='hah' />
         </div> */}

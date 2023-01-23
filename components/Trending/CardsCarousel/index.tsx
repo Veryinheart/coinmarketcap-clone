@@ -32,7 +32,9 @@ export default function CardsCarousel() {
   const autoplay = useRef(Autoplay({ delay: 3000 }))
 
   return (
-    <div style={{ width: 448, height: 200, display: 'flex' }} className="hahah">
+    <div
+      style={{ width: 448, height: 200, display: 'flex', overflow: 'hidden' }}
+    >
       <Carousel
         slideSize="100%"
         breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 1 }]}
