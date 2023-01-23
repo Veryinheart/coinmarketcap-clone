@@ -64,7 +64,7 @@ const TopAccounts = ({}: CardProps) => {
           accountsData.map((account) => (
             <Card.Section key={account.name}>
               <Group position="apart" noWrap ml="xs" mr="xs">
-                <Group position="apart">
+                <Group position="apart" noWrap>
                   <Image
                     src={account.icon}
                     alt="account_logo"
