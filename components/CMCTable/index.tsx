@@ -100,7 +100,7 @@ const CMCTable = () => {
       </td>
       <td>{row.market_cap_rank}</td>
       <td>
-        <Group spacing="xs">
+        <Group spacing="xs" noWrap>
           {<Image alt="icon" src={row.image} width={24} height={24} />}{' '}
           <Text weight={700}>{row.name}</Text>{' '}
           <Text weight={700} color="gray">
