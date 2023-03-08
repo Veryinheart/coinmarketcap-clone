@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -12,20 +12,6 @@ import { IconSearch, IconStar, IconChartPie } from '@tabler/icons'
 import ButtonWithPopover from '../Common/ButtonWithPopover/index'
 
 const Header = () => {
-  useEffect(() => {
-    const getGlobalData = async () => {
-      try {
-        const res = await fetch('/api/getLatestMetrics')
-        const data = await res.json()
-        console.log('[ data ;] >', data)
-        // setGlobalData(res);
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getGlobalData()
-  }, [])
-  // const [globalData, setGlobalData] = useState()
   const { colorScheme } = useMantineColorScheme()
 
   const logoUrl =

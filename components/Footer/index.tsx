@@ -99,9 +99,6 @@ const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    // borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-    //   }`,
-
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column',
     },
@@ -164,7 +161,7 @@ function FooterLinks() {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © 2023 CoinMarketCapClone All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

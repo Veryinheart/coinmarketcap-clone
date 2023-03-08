@@ -28,35 +28,14 @@ import Image from 'next/image'
 import { toThousands } from '../../utils/compute'
 import { getCoinList } from '../../lib/coins'
 
-// const useStyles = createStyles((theme) => ({
-//   header: {
-//     position: 'sticky',
-//     top: 0,
-//     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-//     transition: 'box-shadow 150ms ease',
-
-//     '&::after': {
-//       content: '""',
-//       position: 'absolute',
-//       left: 0,
-//       right: 0,
-//       bottom: 0,
-//       borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[2]
-//         }`,
-//     },
-//   },
-
-//   scrolled: {
-//     boxShadow: theme.shadows.sm,
-//   },
-// }));
-
 const CMCTable = () => {
   const [pagination, setPagination] = useState<{
     page: string
     per_page: string
   }>({ page: '1', per_page: '20' })
+
   const [coinsData, setCoinsData] = useState<CoinRow[]>()
+
   useEffect(() => {
     const getData = async () => {
       const data = await getCoinList('/coins/markets', {
@@ -67,7 +46,7 @@ const CMCTable = () => {
         price_change_percentage: '1h,24h,7d',
       })
       setCoinsData(data)
-      console.log(data)
+      //console.log(data)
     }
     getData()
   }, [pagination])
@@ -75,9 +54,14 @@ const CMCTable = () => {
   const handlePerPage = (value: string) => {
     setPagination({ ...pagination, per_page: value })
   }
+
   const handlePage = (value: number) => {
     console.log(value)
-    setPagination({ ...pagination, page: value.toString() })
+    setPagination({
+      ...pagination,
+      page: value.toString(),
+      per_page: pagination.per_page,
+    })
   }
 
   const rowsData = [
@@ -91,18 +75,20 @@ const CMCTable = () => {
     return `https://www.coingecko.com/coins/${id}/sparkline.svg`
   }
 
-  // const { data } = useCoinList()
-
   const rows = coinsData?.map((row: CoinRow) => (
     <tr key={row.id}>
       <td>
-        <IconStar size={15} onClick={() => console.log('1')} />
+        <IconStar
+          size={15}
+          onClick={() => console.log('add to favorite list')}
+        />
       </td>
       <td>{row.market_cap_rank}</td>
       <td>
-        <Group spacing="xs" noWrap>
-          {<Image alt="icon" src={row.image} width={24} height={24} />}{' '}
-          <Text weight={700}>{row.name}</Text>{' '}
+        <Group spacing="xs" noWrap noWrap>
+          <Image alt="icon" src={row.image} width={24} height={24} />
+          &nbsp;
+          <Text weight={700}>{row.name}</Text>&nbsp;
           <Text weight={700} color="gray">
             {row.symbol.toUpperCase()}
           </Text>
@@ -225,9 +211,6 @@ const CMCTable = () => {
           <Button variant="subtle" color="gray" radius="xs" compact>
             BNB Chain
           </Button>
-          <Button variant="subtle" color="gray" radius="xs" compact>
-            BNB Chain
-          </Button>
         </Group>
         <Group position="apart" noWrap>
           <Group noWrap>
@@ -238,6 +221,7 @@ const CMCTable = () => {
               defaultValue={pagination.per_page}
               variant="filled"
               style={{ maxWidth: 60 }}
+              value={pagination.per_page}
               onChange={(value: string) => handlePerPage(value)}
             />
           </Group>
@@ -322,6 +306,7 @@ const CMCTable = () => {
               defaultValue={pagination.per_page}
               variant="filled"
               style={{ maxWidth: 60 }}
+              value={pagination.per_page}
               onChange={(value: string) => handlePerPage(value)}
             />
           </Group>

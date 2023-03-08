@@ -1,9 +1,20 @@
-import { Container, Center, Group, Stack, Title, Button } from '@mantine/core'
+import {
+  Container,
+  Center,
+  Group,
+  Stack,
+  Title,
+  Button,
+  useMantineColorScheme,
+} from '@mantine/core'
 import React from 'react'
 import Image from 'next/image'
+
 const Banner = () => {
+  const { colorScheme } = useMantineColorScheme()
+  console.log(colorScheme === 'dark')
   return (
-    <div style={{ height: '100%', backgroundColor: '#f8fafd' }}>
+    <div style={{ height: '100%' }}>
       <Container size={1400}>
         <Center>
           <Group grow>
