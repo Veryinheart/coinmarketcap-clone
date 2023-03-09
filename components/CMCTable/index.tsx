@@ -56,7 +56,7 @@ const CMCTable = () => {
   }
 
   const handlePage = (value: number) => {
-    console.log(value)
+
     setPagination({
       ...pagination,
       page: value.toString(),
@@ -85,7 +85,7 @@ const CMCTable = () => {
       </td>
       <td>{row.market_cap_rank}</td>
       <td>
-        <Group spacing="xs" noWrap noWrap>
+        <Group spacing="xs" noWrap>
           <Image alt="icon" src={row.image} width={24} height={24} />
           &nbsp;
           <Text weight={700}>{row.name}</Text>&nbsp;
