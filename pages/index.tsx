@@ -61,9 +61,6 @@ const Home: NextPage = () => {
           <Footer />
         </Group>
 
-        {/* <div>
-          <img src={'https://www.coingecko.com/coins/1/sparkline'} alt='hah' />
-        </div> */}
       </div>
     </div>
   )
@@ -71,11 +68,3 @@ const Home: NextPage = () => {
 
 export default Home
 
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch(`https://.../data`)
-//   const data = await res.json()
-
-//   // Pass data to the page via props
-//   return { props: { data } }
-// }

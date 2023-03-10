@@ -12,6 +12,7 @@ const useStyles = createStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     fontSize: '12px',
+
   },
   red: {
     marginLeft: '0.5 rem',
@@ -27,14 +28,16 @@ const Rate = ({ isIncrement, rate }: RateProps) => {
   const { classes } = useStyles()
 
   return (
-    <div className={classes.rate}>
-      {isIncrement ? (
-        <ChevronUp fill="#17C784" />
-      ) : (
-        <ChevronDown fill="#EA3943" />
-      )}
-      &nbsp;
-      <p className={isIncrement ? classes.green : classes.red}>{rate}%</p>
+    <div style={{ display: 'inline-block' }}>
+      <div className={classes.rate}>
+        {isIncrement ? (
+          <ChevronUp fill="#17C784" />
+        ) : (
+          <ChevronDown fill="#EA3943" />
+        )}
+        &nbsp;
+        <p className={isIncrement ? classes.green : classes.red}>{rate}%</p>
+      </div>
     </div>
   )
 }
