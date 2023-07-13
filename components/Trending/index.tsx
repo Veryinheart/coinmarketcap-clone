@@ -15,16 +15,16 @@ import CardsCarousel from './CardsCarousel'
 import TrendingCard from './TrendingCard'
 import useTrendingData from '../../hooks/useTrendingData'
 
-import useGlobalData from '../../hooks/useGlobalData'
+//import useGlobalData from '../../hooks/useGlobalData'
 
 const Trending = () => {
   const [isReadMore, setIsReadMore] = useState(false)
   const [toggleHighlights, setToggleHighlights] = useState(true)
 
   const { data } = useTrendingData()
-  const { data: globalData } = useGlobalData()
+  // const { data: globalData } = useGlobalData()
 
-  console.log(globalData);
+  // console.log(globalData);
 
   return (
     <div style={{ maxWidth: '100vw' }}>
@@ -47,12 +47,12 @@ const Trending = () => {
             </Group>
           </Group>
           <Group>
-            <p>
+            <div>
               <Text>
                 The global crypto market cap is $1.01T, a <Rate isIncrement={true} rate='0.18' /> increase over the
                 last day.
               </Text>
-            </p>
+            </div>
 
             <Anchor
               component="button"
